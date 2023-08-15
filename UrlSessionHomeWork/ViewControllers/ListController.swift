@@ -10,6 +10,7 @@ import UIKit
 final class ListController: UITableViewController {
  
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    
     //MARK: - Private property
     
     private var planets: [Planet] = []

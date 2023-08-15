@@ -11,21 +11,25 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="UrlSessionHomeWork" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="StarWarsPlanets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7XY-Us-1UH">
-                                <rect key="frame" x="85" y="244" width="150" height="80"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to the top 10 Star Wars planets" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRM-9x-YPk">
+                                <rect key="frame" x="20" y="80" width="280" height="227.5"/>
+                                <fontDescription key="fontDescription" name="PartyLetPlain" family="Party LET" pointSize="65"/>
+                                <color key="textColor" systemColor="systemGray6Color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7XY-Us-1UH">
+                                <rect key="frame" x="80" y="334" width="160" height="150"/>
                                 <color key="backgroundColor" red="0.1510760441" green="0.62611713179999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="8e8-BK-VFu"/>
-                                    <constraint firstAttribute="height" constant="80" id="Ykw-Qh-0bl"/>
+                                    <constraint firstAttribute="height" constant="150" id="2J8-uw-Vue"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Get JSON">
+                                <state key="normal" title="Go" image="seniorVaider" backgroundImage="galaxy">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -35,14 +39,19 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="GetJsonButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="YYk-go-0IY"/>
+                                    <segue destination="lRs-us-Rf1" kind="presentation" modalPresentationStyle="fullScreen" id="bur-Kz-uNf"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="7XY-Us-1UH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kud-Ub-y9h"/>
-                            <constraint firstItem="7XY-Us-1UH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nxR-AV-Hhg"/>
+                            <constraint firstItem="7XY-Us-1UH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7dI-ON-A2u"/>
+                            <constraint firstItem="oRM-9x-YPk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" multiplier="1.5" constant="50" id="PQ8-oG-1c4"/>
+                            <constraint firstItem="oRM-9x-YPk" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.875" id="eeY-TL-OWO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7XY-Us-1UH" secondAttribute="bottom" multiplier="1.05" constant="60" id="jBr-jR-pTi"/>
+                            <constraint firstItem="oRM-9x-YPk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="meo-BG-LUT"/>
+                            <constraint firstItem="7XY-Us-1UH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="vpR-1s-Ixd"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -50,10 +59,118 @@
             </objects>
             <point key="canvasLocation" x="41.25" y="-2.112676056338028"/>
         </scene>
+        <!--Planets-->
+        <scene sceneID="oKJ-xR-coC">
+            <objects>
+                <tableViewController id="5sh-JX-Q60" customClass="ListController" customModule="StarWarsPlanets" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="UcY-hf-hBB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" id="eXl-qR-fAN">
+                            <rect key="frame" x="0.0" y="121.5" width="320" height="37"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </activityIndicatorView>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="duB-Hd-Rpk" customClass="PlanetViewCell" customModule="StarWarsPlanets" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="320" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="duB-Hd-Rpk" id="g7g-Ba-yWz">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUY-1L-ioN">
+                                            <rect key="frame" x="127" y="3.5" width="66" height="37"/>
+                                            <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="30"/>
+                                            <color key="textColor" systemColor="systemGray6Color"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="OUY-1L-ioN" firstAttribute="centerY" secondItem="g7g-Ba-yWz" secondAttribute="centerY" id="GPx-TB-i4b"/>
+                                        <constraint firstItem="OUY-1L-ioN" firstAttribute="centerX" secondItem="g7g-Ba-yWz" secondAttribute="centerX" id="jcx-yH-0DD"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="namePlanetLabel" destination="OUY-1L-ioN" id="ptt-uG-rsd"/>
+                                    <segue destination="Sfc-Ws-6rb" kind="show" id="U1h-lN-pWd"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="5sh-JX-Q60" id="nFZ-WR-cGK"/>
+                            <outlet property="delegate" destination="5sh-JX-Q60" id="jPr-hE-Ulj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Planets" id="CIk-wM-bAO"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="eXl-qR-fAN" id="Kgs-2E-wnr"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hE5-FO-h34" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1714" y="-2"/>
+        </scene>
+        <!--Planet Viwe Controller-->
+        <scene sceneID="Qtl-Qq-bSF">
+            <objects>
+                <viewController id="Sfc-Ws-6rb" customClass="PlanetViweController" customModule="StarWarsPlanets" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HEu-Tb-0fW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c92-WH-ItK">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="r10-LC-tHv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="c92-WH-ItK" firstAttribute="leading" secondItem="r10-LC-tHv" secondAttribute="leading" id="9NR-Tq-u7h"/>
+                            <constraint firstItem="r10-LC-tHv" firstAttribute="bottom" secondItem="c92-WH-ItK" secondAttribute="bottom" id="OoV-Im-6QY"/>
+                            <constraint firstItem="c92-WH-ItK" firstAttribute="top" secondItem="r10-LC-tHv" secondAttribute="top" id="hsw-D5-ebn"/>
+                            <constraint firstItem="r10-LC-tHv" firstAttribute="trailing" secondItem="c92-WH-ItK" secondAttribute="trailing" id="kbo-ZL-3BH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="48C-jK-Zvi"/>
+                    <connections>
+                        <outlet property="planetDescriptionLabel" destination="c92-WH-ItK" id="rnu-pk-XLR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VHo-FI-nqU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2543" y="-2"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="igh-ee-IMw">
+            <objects>
+                <navigationController id="lRs-us-Rf1" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="qf6-yD-jNm"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YSJ-Gx-pSZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="5sh-JX-Q60" kind="relationship" relationship="rootViewController" id="Q47-63-GvW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eYE-Fd-m1C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="893" y="-2"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="galaxy" width="938" height="1668"/>
+        <image name="seniorVaider" width="800" height="800"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

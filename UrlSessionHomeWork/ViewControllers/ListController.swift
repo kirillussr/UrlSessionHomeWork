@@ -6,25 +6,28 @@
 //
 
 import UIKit
+import Alamofire
 
 final class ListController: UITableViewController {
- 
+    
+    //MARK: - IB Outlets
+    
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
-    //MARK: - Private property
+    //MARK: - Private properties
     
     private var planets: [Planet] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundView = UIImageView(image: UIImage(named: "galaxy"))
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
-        fetchPlanet()
+        fetchPlanetSW()
     }
-
+    
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         65
     }
@@ -32,7 +35,7 @@ final class ListController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         planets.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         guard let cell = cell as? PlanetViewCell else { return UITableViewCell() }
@@ -42,7 +45,7 @@ final class ListController: UITableViewController {
     }
     
     // MARK: - Navigation
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let indexPath = tableView.indexPathForSelectedRow {
             guard let planetVC = segue.destination as? PlanetViweController else { return }
@@ -55,18 +58,18 @@ final class ListController: UITableViewController {
 
 private extension ListController {
     
-    func fetchPlanet() {
-
-        NetworkManager.shared.fetch(StarWarsPlanet.self, from: URL(string: "https://swapi.dev/api/planets/?format=json")!) { [weak self] result in
+    func fetchPlanetSW() {
+        
+        NetworkManager.shared.fetchPlanets(from: Link.url.rawValue) { [weak self] result in
             switch result {
-            case .success(let planet):
-                self?.planets = planet.results
+            case .success(let planets):
+                self?.planets = planets
                 self?.activityIndicator.stopAnimating()
                 self?.tableView.reloadData()
             case .failure(let error):
-                print(error)
-               
+                print(error.localizedDescription)
             }
         }
     }
 }
+

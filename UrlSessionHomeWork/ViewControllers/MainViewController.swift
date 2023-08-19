@@ -13,8 +13,5 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(patternImage: UIImage(named: "galaxy")!)
     }
-    
-    @IBAction func GetJsonButtonTapped() {
-    }
 }
 

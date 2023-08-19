@@ -6,11 +6,10 @@
 //
 
 import Foundation
+import Alamofire
 
-enum NetworkError: Error {
-    case invalidURL
-    case noData
-    case decodingError
+enum Link: String {
+    case url = "https://swapi.dev/api/planets/?format=json"
 }
 
 final class NetworkManager {
@@ -18,25 +17,17 @@ final class NetworkManager {
     
     private init() {}
     
-    func fetch<T: Decodable>(_ type: T.Type, from url: URL, completion: @escaping(Result<T, NetworkError>) -> Void) {
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data else {
-                completion(.failure(.noData))
-                print(error?.localizedDescription ?? "No error description")
-                return
+    func fetchPlanets(from url: String, completion: @escaping(Result<[Planet], AFError>) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseJSON { dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    let planets = Planet.getPlanets(from: value)
+                    completion(.success(planets))
+                case .failure(let error):
+                    completion(.failure(error))
             }
-            
-            let decoder = JSONDecoder()
-            
-            do {
-                let dataModel = try decoder.decode(T.self, from: data)
-                DispatchQueue.main.async {
-                    completion(.success(dataModel))
-                }
-            } catch {
-                completion(.failure(.decodingError))
-            }
-            
-        }.resume()
+        }
     }
 }

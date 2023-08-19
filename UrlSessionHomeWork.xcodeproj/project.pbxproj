@@ -18,6 +18,7 @@
 		EDF972CE2A8A9D1100EB5809 /* PlanetVewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF972CD2A8A9D1100EB5809 /* PlanetVewController.swift */; };
 		EDF972D02A8A9D4C00EB5809 /* PlanetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF972CF2A8A9D4C00EB5809 /* PlanetViewCell.swift */; };
 		EDF972D12A8BD72A00EB5809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED623B332A810F0E001D4CE9 /* Assets.xcassets */; };
+		EDF973072A8E0FF100EB5809 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = EDF973062A8E0FF100EB5809 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDF973072A8E0FF100EB5809 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +148,9 @@
 			dependencies = (
 			);
 			name = StarWarsPlanets;
+			packageProductDependencies = (
+				EDF973062A8E0FF100EB5809 /* Alamofire */,
+			);
 			productName = UrlSessionHomeWork;
 			productReference = ED623B272A810F0C001D4CE9 /* StarWarsPlanets.app */;
 			productType = "com.apple.product-type.application";
@@ -174,6 +179,9 @@
 				Base,
 			);
 			mainGroup = ED623B1E2A810F0C001D4CE9;
+			packageReferences = (
+				EDF973052A8E0FF100EB5809 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = ED623B282A810F0C001D4CE9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -426,6 +434,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EDF973052A8E0FF100EB5809 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EDF973062A8E0FF100EB5809 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDF973052A8E0FF100EB5809 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ED623B1F2A810F0C001D4CE9 /* Project object */;
 }

@@ -7,6 +7,9 @@
 
 import UIKit
 
-class PlanetViewCell: UITableViewCell {
+final class PlanetViewCell: UITableViewCell {
+    
+    //MARK: - IB Outlets
+    
     @IBOutlet var namePlanetLabel: UILabel!
 }

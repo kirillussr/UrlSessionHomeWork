@@ -8,7 +8,7 @@
 import Foundation
 
 struct StarWarsPlanet: Decodable {
-
+    
     let results: [Planet]
 }
 
@@ -36,6 +36,30 @@ Terrain: \(terrain)
 Surface wather: \(surface_water)
 Populations: \(population)
 """
+    }
+    
+    init(value: [String: Any]) {
+        name = value["name"] as? String ?? ""
+        rotation_period = value["rotation_period"]as? String ?? ""
+        orbital_period = value["orbital_period"] as? String ?? ""
+        diameter = value["diameter"] as? String ?? ""
+        climate = value["climate"] as? String ?? ""
+        gravity = value["gravity"] as? String ?? ""
+        terrain = value["terrain"] as? String ?? ""
+        surface_water = value["surface_water"] as? String ?? ""
+        population = value["population"] as? String ?? ""
+    }
+    
+    static func getPlanets(from value: Any) -> [Planet] {
+        guard let value = value as? [String: Any] else { return [] }
+        guard let results = value["results"] as? [[String: Any]] else { return [] }
+        var planets: [Planet] = []
+        
+        for result in results {
+            let planet = Planet(value: result)
+            planets.append(planet)
+        }
+        return planets
     }
 }
 

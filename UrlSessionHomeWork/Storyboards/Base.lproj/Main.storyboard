@@ -23,11 +23,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7XY-Us-1UH">
-                                <rect key="frame" x="80" y="334" width="160" height="150"/>
+                                <rect key="frame" x="80" y="370" width="160" height="114"/>
                                 <color key="backgroundColor" red="0.1510760441" green="0.62611713179999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="2J8-uw-Vue"/>
-                                </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Go" image="seniorVaider" backgroundImage="galaxy">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -38,7 +35,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="GetJsonButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="YYk-go-0IY"/>
                                     <segue destination="lRs-us-Rf1" kind="presentation" modalPresentationStyle="fullScreen" id="bur-Kz-uNf"/>
                                 </connections>
                             </button>
@@ -48,6 +44,7 @@
                         <constraints>
                             <constraint firstItem="7XY-Us-1UH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7dI-ON-A2u"/>
                             <constraint firstItem="oRM-9x-YPk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" multiplier="1.5" constant="50" id="PQ8-oG-1c4"/>
+                            <constraint firstItem="7XY-Us-1UH" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.2" id="UKE-qG-neF"/>
                             <constraint firstItem="oRM-9x-YPk" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.875" id="eeY-TL-OWO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7XY-Us-1UH" secondAttribute="bottom" multiplier="1.05" constant="60" id="jBr-jR-pTi"/>
                             <constraint firstItem="oRM-9x-YPk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="meo-BG-LUT"/>
